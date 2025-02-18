@@ -7,6 +7,33 @@
     <h1>hello games</h1>
     <h2>play on the best unblocked games sites ever</h2>
     <h3>use ctrl+f to find a specific game</h3>
+    <button>open this page in about:blank</button>
+    <script>
+      var urlObj = new window.URL(window.location.href);
+      var url = "/";
+      if (url) {
+        var win;
+
+        document.querySelector('button').onclick = function() {
+          if (win) {
+            win.focus();
+          } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.margin = '0';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+          }
+          document.querySelector('button').style.bacground = 'grey';
+          document.querySelector('button').innerHTML = "refresh for this to work again";
+        };
+      }
+    </script>
     <ul>
       <li><p><a href="games/btd1.html">btd1</a></p></li>
       <li><p><a href="games/btd2.html">btd2</a></p></li>
